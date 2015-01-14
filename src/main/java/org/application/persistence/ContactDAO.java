@@ -13,7 +13,7 @@ import javax.persistence.Query;
 import org.application.bean.GenericDAO;
 import org.application.model.Contact;
 
-@Named
+@Named("ContactDAO")
 @Singleton
 public class ContactDAO extends GenericDAO implements Serializable{
 

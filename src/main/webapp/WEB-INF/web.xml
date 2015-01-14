@@ -31,6 +31,10 @@
    <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
   </listener>
+
+  <listener>
+   <listener-class>org.jboss.weld.environment.servlet.BeanManagerResourceBindingListener</listener-class>
+  </listener>
   
   <resource-env-ref>
     <description>Object factory for the CDI Bean Manager</description>

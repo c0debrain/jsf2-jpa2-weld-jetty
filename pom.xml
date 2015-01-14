@@ -10,9 +10,14 @@
 
 
 	<properties>
-		<!--
-		<jetty.version>6.1.4</jetty.version>
-	-->
+		<java.version>1.7</java.version>
+		<jetty.version>9.2.6.v20141205</jetty.version>
+		
+		<weld.version>2.2.8.Final</weld.version>
+		
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
 	<dependencies>
@@ -33,7 +38,7 @@
 		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
 			<artifactId>weld-servlet</artifactId>
-			<version>1.0.1-Final</version>
+			<version>${weld.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<!-- Bean Validation Dependencies -->
@@ -104,6 +109,19 @@
 			<artifactId>hibernatesqlite</artifactId>
 			<version>1.0</version>
 		</dependency>
+
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-server</artifactId>
+		    <version>${jetty.version}</version>
+		    <scope>provided</scope>
+		</dependency>
+
+		 <dependency>
+	        <groupId>org.slf4j</groupId>
+	        <artifactId>slf4j-log4j12</artifactId>
+	        <version>1.5.2</version>
+	    </dependency>
 	</dependencies>
 
 	<repositories>
@@ -168,9 +186,11 @@
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.3.0.M1</version>
+				<version>${jetty.version}</version>
 				<configuration>
 					<scanIntervalSeconds>3</scanIntervalSeconds>
+					<jettyEnvXml>src/main/webapp/WEB-INF/jetty-env.xml</jettyEnvXml>
+        			<contextXml>src/main/webapp/WEB-INF/jetty-context.xml</contextXml>
 				</configuration>
 			</plugin>
 
@@ -180,11 +200,11 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
-			<!--  Tomcat plugin for embedded tomcat  -->
+			<!--  Tomcat plugin for embedded tomcat
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>tomcat-maven-plugin</artifactId>
@@ -192,7 +212,7 @@
 					<path>/${project.build.finalName}</path>
 				</configuration>
 			</plugin>
-
+			-->
 		</plugins>
 	</build>
 </project>

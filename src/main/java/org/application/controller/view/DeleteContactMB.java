@@ -2,6 +2,7 @@ package org.application.controller.view;
 
 import java.io.Serializable;
 
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -9,7 +10,8 @@ import javax.inject.Named;
 import org.application.persistence.ContactDAO;
 
 @Named
-@SessionScoped
+@RequestScoped
+//@SessionScoped
 public class DeleteContactMB implements Serializable {
 
 	private static final long serialVersionUID = 1L;
