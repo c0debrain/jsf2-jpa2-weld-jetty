@@ -1,6 +1,8 @@
 
 ** b1
 -- update jetty to 9.3
+-- added support for *.xhtml as jsf file
+-- added list.xhtml as welcome file
 -- Just download the source from github and type: mvn jetty:run, after:
 http://localhost:8080/list.jsf
 

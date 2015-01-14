@@ -22,7 +22,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>*.jsf</url-pattern>
+    <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
   <listener>
     <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
@@ -48,4 +48,8 @@
 <!-- <param-value>none</param-value> -->
 <!-- </context-param> -->
   
+  <welcome-file-list>
+    <welcome-file>list.xhtml</welcome-file>
+  </welcome-file-list>
+
 </web-app>
